@@ -16,7 +16,7 @@ class NewTrackingViewController: UIViewController {
     
     @IBAction func stopPressed(_ sender: UIButton) {
         
-        print("stop pressed!")
+        print("stop pressed!2")
         
 //        let alertController = UIAlertController(title: "End run?",
 //                                                message: "Do you wish to end your run?",
