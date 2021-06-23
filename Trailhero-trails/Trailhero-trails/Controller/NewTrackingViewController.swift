@@ -53,7 +53,10 @@ class NewTrackingViewController: UIViewController {
     }
     
     func stopTracking() {
-        print("Tracking stopped.")
+       
+        timer?.invalidate()
+        updateView()
+        print("Tracking stopped.Invalidate")
         //startButton.isHidden = false
         // locationManager.stopUpdatingLocation()
     }
@@ -61,7 +64,11 @@ class NewTrackingViewController: UIViewController {
     func eachSecond() {
         seconds += 1
         updateView()
-        
+    }
+    
+    func eachSecondStop() {
+        seconds = 0
+        updateView()
     }
     
     func updateView() {
