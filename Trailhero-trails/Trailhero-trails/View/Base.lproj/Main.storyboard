@@ -44,6 +44,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="startButton" destination="Bvh-6P-0i9" id="bgS-Hm-9Sg"/>
+                        <outlet property="stopButton" destination="VAB-r0-4Dv" id="VMc-3s-U2F"/>
                         <outlet property="timeLabel" destination="znG-21-FvA" id="qVL-mM-eeU"/>
                     </connections>
                 </viewController>

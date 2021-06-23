@@ -8,6 +8,8 @@ class NewTrackingViewController: UIViewController {
     var timer: Timer?
     
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
     
     @IBAction func startPressed(_ sender: UIButton) {
         startTracking()
@@ -18,25 +20,23 @@ class NewTrackingViewController: UIViewController {
         
         print("stop pressed!2")
         
-//        let alertController = UIAlertController(title: "End run?",
-//                                                message: "Do you wish to end your run?",
-//                                                preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-//        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-//          self.stopTracking()
-//          self.saveTracking()
-//          //self.performSegue(withIdentifier: .details, sender: nil)
-//        })
-//        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-//          self.stopTracking()
-//          _ = self.navigationController?.popToRootViewController(animated: true)
-//        })
-//
-//        present(alertController, animated: true)
+        let alertController = UIAlertController(title: "End run?",
+                                                message: "Do you wish to end your run?",
+                                                preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+          self.stopTracking()
+          self.saveTracking()
+          //self.performSegue(withIdentifier: .details, sender: nil)
+        })
+        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
+          self.stopTracking()
+          _ = self.navigationController?.popToRootViewController(animated: true)
+        })
+
+        present(alertController, animated: true)
         
     }
-    
- 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +49,12 @@ class NewTrackingViewController: UIViewController {
             _ in self.eachSecond()
         }
         updateView()
+//        stopButton.isHidden = true
     }
     
     func stopTracking() {
-//        startButton.isHidden = false
-//        stopButton.isHidden = true
-        
+        print("Tracking stopped.")
+        //startButton.isHidden = false
         // locationManager.stopUpdatingLocation()
     }
     
@@ -71,9 +71,9 @@ class NewTrackingViewController: UIViewController {
         
     }
     
-//    func saveTracking() {
-//        print("Tracking saved.")
-//    }
+    func saveTracking() {
+        print("Tracking saved.")
+    }
     
 
 
