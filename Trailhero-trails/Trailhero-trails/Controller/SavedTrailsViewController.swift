@@ -27,10 +27,13 @@ class SavedTrailsViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        //let aika = String(duration)
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SavedTrailsCell", for: indexPath)
 
         cell.textLabel?.text = trails[indexPath.row].title
-
+        cell.detailTextLabel?.text = String(trails[indexPath.row].duration)
         return cell
     }
  
