@@ -8,6 +8,8 @@ class NewTrackingViewController: UIViewController {
     var seconds = 1
     var timer: Timer?
     
+    var trails = [Trails]()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext // Coredata Context Layer
     
     @IBOutlet weak var timeLabel: UILabel!
@@ -52,8 +54,48 @@ class NewTrackingViewController: UIViewController {
         
     }
     
+    @IBAction func saveTextPressed(_ sender: UIButton) {
+        
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New text", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+            
+            let newTrails = Trails(context: self.context)
+            newTrails.title = textField.text!
+
+            self.trails.append(newTrails)
+            
+            self.saveTrails()
+        }
+        
+        alert.addAction(action)
+        
+        alert.addTextField { (field) in
+            textField = field
+            textField.placeholder = "Add a new text"
+        }
+        
+        present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    
 
     // MARK: - Functions
+    
+    func saveTrails() {
+         
+         do {
+            try context.save()
+         } catch {
+            print("Error saving context \(error)")
+         }
+         //tableView.reloadData()
+    }
+    
     
     func startTracking() {
         seconds = 0
