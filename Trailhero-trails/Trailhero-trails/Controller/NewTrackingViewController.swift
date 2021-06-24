@@ -1,15 +1,29 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CoreData
 
 class NewTrackingViewController: UIViewController {
 
     var seconds = 1
     var timer: Timer?
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext // Coredata Context Layer
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+    }
+    
+    
+    // MARK: - IBActions
     
     @IBAction func startPressed(_ sender: UIButton) {
         startTracking()
@@ -38,10 +52,8 @@ class NewTrackingViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+
+    // MARK: - Functions
     
     func startTracking() {
         seconds = 0
@@ -79,7 +91,16 @@ class NewTrackingViewController: UIViewController {
     }
     
     func saveTracking() {
-        print("Tracking saved.")
+        
+        do {
+           try context.save()
+        } catch {
+           print("Error saving context \(error)")
+        }
+        
+        // self.tableView.reloadData()
+        
+        print("Tracking saved to CoreData.")
     }
     
 
