@@ -86,7 +86,13 @@
                             <outlet property="delegate" destination="hJ3-Xx-3mQ" id="DgA-Q4-WJF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved trails" id="HGg-lo-31l"/>
+                    <navigationItem key="navigationItem" title="Saved trails" id="HGg-lo-31l">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vBu-8z-9Iw">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="hJ3-Xx-3mQ" id="9jk-yZ-QBK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Arr-zb-6dP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
