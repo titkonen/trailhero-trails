@@ -47,6 +47,14 @@
                                     <action selector="saveTextPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jJ6-7d-OQK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exQ-aN-Yza">
+                                <rect key="frame" x="174" y="755" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save time"/>
+                                <connections>
+                                    <action selector="saveTimePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B9p-y4-MKI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

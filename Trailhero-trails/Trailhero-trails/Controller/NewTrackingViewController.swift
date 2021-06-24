@@ -8,6 +8,7 @@ class NewTrackingViewController: UIViewController {
     var seconds = 1
     var timer: Timer?
     
+    
     var trails = [Trails]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext // Coredata Context Layer
@@ -16,12 +17,10 @@ class NewTrackingViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
+        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
     
     
@@ -34,15 +33,14 @@ class NewTrackingViewController: UIViewController {
     
     @IBAction func stopPressed(_ sender: UIButton) {
         
-        print("stop pressed!2")
-        
-        let alertController = UIAlertController(title: "End run?",
-                                                message: "Do you wish to end your run?",
+        let alertController = UIAlertController(title: "End tracking?",
+                                                message: "Do you wish to end your tracking?",
                                                 preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-          self.stopTracking()
-          self.saveTracking()
+            
+            self.stopTracking()
+            //self.saveTracking()
           //self.performSegue(withIdentifier: .details, sender: nil)
         })
         alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
@@ -51,6 +49,8 @@ class NewTrackingViewController: UIViewController {
         })
 
         present(alertController, animated: true)
+        
+        print("stop pressed!")
         
     }
     
@@ -79,21 +79,36 @@ class NewTrackingViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
         
-        
     }
+    
+    @IBAction func saveTimePressed(_ sender: UIButton) {
+        
+        let newTrails = Trails(context: self.context)
+       // newRun.distance = distance.value
+        newTrails.duration = Int16(seconds)
+        newTrails.timestamp = Date()
+        newTrails.title = "New track added"
+        
+        self.trails.append(newTrails)
+        
+        self.saveTrails()
+        
+        //run = newRun
+        print("saveTimePressed")
+        print(newTrails)
+    }
+    
     
     
 
     // MARK: - Functions
     
     func saveTrails() {
-         
          do {
             try context.save()
          } catch {
             print("Error saving context \(error)")
          }
-         //tableView.reloadData()
     }
     
     
@@ -132,18 +147,16 @@ class NewTrackingViewController: UIViewController {
         
     }
     
-    func saveTracking() {
-        
-        do {
-           try context.save()
-        } catch {
-           print("Error saving context \(error)")
-        }
-        
-        // self.tableView.reloadData()
-        
-        print("Tracking saved to CoreData.")
-    }
+//    func saveTracking() {
+//
+//        do {
+//           try context.save()
+//        } catch {
+//           print("Error saving context \(error)")
+//        }
+//
+//        print("Tracking saved to CoreData.")
+//    }
     
 
 
