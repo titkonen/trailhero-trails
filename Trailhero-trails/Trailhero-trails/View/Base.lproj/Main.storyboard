@@ -17,22 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znG-21-FvA">
-                                <rect key="frame" x="51" y="685" width="181" height="21"/>
+                                <rect key="frame" x="20" y="638" width="181" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-r0-4Dv">
-                                <rect key="frame" x="241" y="700" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="stopPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="twe-K4-4A0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvh-6P-0i9">
-                                <rect key="frame" x="131" y="700" width="34" height="30"/>
+                                <rect key="frame" x="190" y="699" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
@@ -40,19 +32,31 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trR-Qj-Ilq">
-                                <rect key="frame" x="132" y="627" width="150" height="30"/>
+                                <rect key="frame" x="301" y="757" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save text to tableview"/>
+                                <state key="normal" title="Save text"/>
                                 <connections>
                                     <action selector="saveTextPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jJ6-7d-OQK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exQ-aN-Yza">
-                                <rect key="frame" x="174" y="755" width="67" height="30"/>
+                                <rect key="frame" x="174" y="757" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save time"/>
                                 <connections>
                                     <action selector="saveTimePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B9p-y4-MKI"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OoM-y4-BTB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="567"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAB-r0-4Dv">
+                                <rect key="frame" x="71" y="699" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="twe-K4-4A0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,6 +65,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Track" image="location.circle" catalog="system" id="aum-1E-zJj"/>
                     <connections>
+                        <outlet property="mapView" destination="OoM-y4-BTB" id="lnV-SO-deQ"/>
                         <outlet property="startButton" destination="Bvh-6P-0i9" id="bgS-Hm-9Sg"/>
                         <outlet property="stopButton" destination="VAB-r0-4Dv" id="VMc-3s-U2F"/>
                         <outlet property="timeLabel" destination="znG-21-FvA" id="qVL-mM-eeU"/>
@@ -68,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1961" y="-1039"/>
+            <point key="canvasLocation" x="1960.8695652173915" y="-1039.2857142857142"/>
         </scene>
         <!--SavedTrails-->
         <scene sceneID="ZmP-M2-kDw">
@@ -170,8 +175,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="aKE-ZP-Uhh"/>
-                        <segue destination="M7m-gr-mxH" kind="relationship" relationship="viewControllers" id="i63-bL-KrU"/>
                         <segue destination="rg1-Ug-Y3T" kind="relationship" relationship="viewControllers" id="Feg-PC-01n"/>
+                        <segue destination="M7m-gr-mxH" kind="relationship" relationship="viewControllers" id="i63-bL-KrU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0p-Nc-tep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

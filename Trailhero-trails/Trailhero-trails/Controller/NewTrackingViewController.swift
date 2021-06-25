@@ -7,7 +7,7 @@ class NewTrackingViewController: UIViewController {
 
     var seconds = 1
     var timer: Timer?
-    
+   // let locationManager = LocationManager.shared // ? en tiedä tarvitaanko?
     
     var trails = [Trails]()
     
@@ -16,11 +16,20 @@ class NewTrackingViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        //locationManager.stopUpdatingLocation()
     }
     
     
