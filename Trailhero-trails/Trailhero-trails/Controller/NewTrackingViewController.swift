@@ -42,22 +42,24 @@ class NewTrackingViewController: UIViewController {
     
     @IBAction func stopPressed(_ sender: UIButton) {
         
-        let alertController = UIAlertController(title: "End tracking?",
-                                                message: "Do you wish to end your tracking?",
-                                                preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
-            
-            self.stopTracking()
+        self.stopTracking()
+        
+//        let alertController = UIAlertController(title: "End tracking?",
+//                                                message: "Do you wish to end your tracking?",
+//                                                preferredStyle: .actionSheet)
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//        alertController.addAction(UIAlertAction(title: "Save", style: .default) { _ in
+//
+//            self.stopTracking()
             //self.saveTracking()
           //self.performSegue(withIdentifier: .details, sender: nil)
-        })
-        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
-          self.stopTracking()
-          _ = self.navigationController?.popToRootViewController(animated: true)
-        })
-
-        present(alertController, animated: true)
+//        })
+//        alertController.addAction(UIAlertAction(title: "Discard", style: .destructive) { _ in
+//          self.stopTracking()
+//          _ = self.navigationController?.popToRootViewController(animated: true)
+//        })
+//
+//        present(alertController, animated: true)
         
         print("stop pressed!")
         
